@@ -25,7 +25,7 @@ public class Execution {
     private Integer id;
 
     @Column(length=100, nullable = false)
-    private String path = "unclassified";
+    private String path = "/unclassified";
 
     @Column(length=100, nullable = false)
     private String testCase;

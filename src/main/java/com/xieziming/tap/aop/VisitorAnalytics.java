@@ -38,8 +38,9 @@ public class VisitorAnalytics {
         String uri = request.getRequestURI();
         String method = request.getMethod();
 
+        log.info("request: {}, method: {}, return: {}", uri, method);
+
         Object result = pjp.proceed();
-        log.info("request: {}, method: {}, return: {}", uri, method, result.getClass().getSimpleName());
         return result;
     }
 }
