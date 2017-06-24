@@ -47,7 +47,6 @@ public class FileServiceController {
     }
 
     private String getRealFilePath(String path) throws Exception {
-        if(!path.startsWith("/file")) throw new Exception("file path not valid!");
         return path.replaceFirst("/file", "files");
     }
 }
