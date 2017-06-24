@@ -28,7 +28,6 @@ public class TestCaseSearchServiceController {
     TestCaseSearchService testCaseSearchService;
 
     @ApiOperation(value="Search test cases", notes="Search test cases via a POST/PUT request")
-    @ApiImplicitParam(name = "SearchCondition", value = "the search condition", required = true, dataType = "SearchCondition")
     @RequestMapping(value = {"", "/"}, method = {RequestMethod.PUT, RequestMethod.POST})
     public List<TestCase> search(@RequestBody SearchCondition searchCondition) throws Exception {
         return testCaseSearchService.findByConditions(searchCondition);

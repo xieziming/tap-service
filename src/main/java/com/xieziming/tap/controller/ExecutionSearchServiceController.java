@@ -27,7 +27,6 @@ public class ExecutionSearchServiceController {
     ExecutionSearchService executionSearchService;
 
     @ApiOperation(value="Search executions", notes="Search executions via a POST/PUT request")
-    @ApiImplicitParam(name = "SearchCondition", value = "the search condition", required = true, dataType = "SearchCondition")
     @RequestMapping(value = {"", "/"}, method = {RequestMethod.PUT, RequestMethod.POST})
     public List<Execution> search(@RequestBody SearchCondition searchCondition) throws Exception {
         return executionSearchService.findByConditions(searchCondition);
