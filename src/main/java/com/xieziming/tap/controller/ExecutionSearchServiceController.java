@@ -10,7 +10,6 @@ import com.xieziming.tap.dto.ExecutionFolder;
 import com.xieziming.tap.model.execution.Execution;
 import com.xieziming.tap.search.SearchCondition;
 import com.xieziming.tap.service.ExecutionSearchService;
-import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -33,7 +32,6 @@ public class ExecutionSearchServiceController {
     }
 
     @ApiOperation(value="Search execution folder", notes="Search execution folder via a POST/PUT request")
-    @ApiImplicitParam(name = "path", value = "execution path", required = true, dataType = "String")
     @RequestMapping(value = "/path", method = RequestMethod.POST)
     public ExecutionFolder retrievePath(@RequestParam String path){
         return executionSearchService.getExecutionFolder(path);

@@ -10,7 +10,6 @@ import com.xieziming.tap.dto.TestCaseFolder;
 import com.xieziming.tap.model.testcase.TestCase;
 import com.xieziming.tap.search.SearchCondition;
 import com.xieziming.tap.service.TestCaseSearchService;
-import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -34,7 +33,6 @@ public class TestCaseSearchServiceController {
     }
 
     @ApiOperation(value="Search test case folder", notes="Search test case folder via a POST/PUT request")
-    @ApiImplicitParam(name = "path", value = "test case path", required = true, dataType = "String")
     @RequestMapping(value = "/path", method = RequestMethod.POST)
     public TestCaseFolder retrievePath(@RequestParam String path){
         return testCaseSearchService.getTestCaseFolder(path);
