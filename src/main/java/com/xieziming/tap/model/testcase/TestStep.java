@@ -25,7 +25,7 @@ public class TestStep {
     @Column(length=10)
     private Integer stepOrder;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.MERGE)
     private TestStepOperation testStepOperation;
 
     @Column(length=500)

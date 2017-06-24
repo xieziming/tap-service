@@ -8,14 +8,15 @@
             timeToIdleSeconds="10"
             timeToLiveSeconds="20"/>
 
-    <cache name="test_case"
-           maxElementsInMemory="500"
-           timeToIdleSeconds="60"
-           timeToLiveSeconds="3600"/>
-
     <cache name="test_case_search"
-           maxElementsInMemory="50"
+           maxElementsInMemory="100"
            timeToIdleSeconds="3"
            timeToLiveSeconds="60"/>
+
+    <cache name="execution_search"
+           maxElementsInMemory="100"
+           timeToIdleSeconds="3"
+           timeToLiveSeconds="60"/>
+
 
 </ehcache>

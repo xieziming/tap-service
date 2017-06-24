@@ -30,7 +30,7 @@ public class ExecutionOutputText {
     @Column(length=50)
     private String field;
 
-    @Column(length=500)
+    @Column(columnDefinition="TEXT")
     private String value;
 
     @Column(length=100)

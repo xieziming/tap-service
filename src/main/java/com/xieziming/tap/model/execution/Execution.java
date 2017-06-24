@@ -30,7 +30,7 @@ public class Execution {
     @Column(length=100, nullable = false)
     private String testCase;
 
-    @OneToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.MERGE)
     private ExecutionContext executionContext;
 
     @Temporal(TemporalType.TIMESTAMP)
