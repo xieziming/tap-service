@@ -37,4 +37,16 @@ public class TestCaseSearchServiceController {
     public TestCaseFolder retrievePath(@RequestParam String path){
         return testCaseSearchService.getTestCaseFolder(path);
     }
+
+    @ApiOperation(value="Search all test cases", notes="Search all test cases via a GET request")
+    @RequestMapping(value = "/all", method = RequestMethod.GET)
+    public Iterable<TestCase> retrieveAll(){
+        Iterable<TestCase> testCases = testCaseSearchService.findAll();
+        for(TestCase testCase : testCases){
+            testCase.setTestDatas(null);
+            testCase.setTestSteps(null);
+            testCase.setTestCaseMetas(null);
+        }
+        return testCases;
+    }
 }

@@ -22,14 +22,22 @@ public class TestData {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @ManyToOne(cascade = CascadeType.MERGE)
-    private TestDataDefinition testDataDefinition;
+    @Column(length = 50, nullable=false)
+    private String field;
+
+    @Column(columnDefinition="TEXT")
+    private String value;
+
+    @Column(length=500)
+    private String remark;
 
     @Override
     public String toString() {
         return "TestData{" +
                 "id=" + id +
-                ", testDataDefinition=" + testDataDefinition +
+                ", field=" + field +
+                ", value=" + value +
+                ", remark=" + remark +
                 "}";
     }
 
@@ -40,8 +48,9 @@ public class TestData {
         if(o != null && TestData.class.isAssignableFrom(o.getClass())){
             TestData td = (TestData) o;
             equals = (new EqualsBuilder()
-                    .append(testDataDefinition, td.getTestDataDefinition())
-                    .isEquals());
+                    .append(field, td.getField())
+                    .append(value, td.getValue())
+                    .append(remark, td.getRemark()).isEquals());
         }
         return equals;
     }

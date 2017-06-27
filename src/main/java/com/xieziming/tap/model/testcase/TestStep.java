@@ -16,28 +16,32 @@ import javax.persistence.*;
  */
 @Data
 @Entity
-@Table(name="test_step", uniqueConstraints = {@UniqueConstraint(columnNames={"test_case_uid", "stepOrder"})})
+@Table(name="test_step", uniqueConstraints = {@UniqueConstraint(columnNames={"test_case_uid", "stepNo"})})
 public class TestStep {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     @Column(length=10)
-    private Integer stepOrder;
+    private Integer stepNo;
 
-    @ManyToOne(cascade = CascadeType.MERGE)
-    private TestStepOperation testStepOperation;
+    @Column(length = 100, nullable = false)
+    private String operator;
+
+    @Column(columnDefinition="TEXT")
+    private String parameter;
 
     @Column(length=500)
-    private String parameter;
+    private String remark;
 
     @Override
     public String toString() {
         return "TestStep{" +
                 "id=" + id +
-                ", stepOrder=" + stepOrder +
-                ", testOperation=" + testStepOperation +
+                ", stepNo=" + stepNo +
+                ", operator=" + operator +
                 ", parameter=" + parameter +
+                ", remark=" + remark +
                 "}";
     }
 
@@ -47,9 +51,10 @@ public class TestStep {
         if(o != null && TestStep.class.isAssignableFrom(o.getClass())){
             TestStep ts = (TestStep) o;
             equals = (new EqualsBuilder()
-                    .append(stepOrder, ts.getStepOrder())
-                    .append(testStepOperation, ts.getTestStepOperation())
-                    .append(parameter, ts.getParameter()).isEquals());
+                    .append(stepNo, ts.getStepNo())
+                    .append(operator, ts.getOperator())
+                    .append(parameter, ts.getParameter())
+                    .append(remark, ts.getRemark()).isEquals());
         }
         return equals;
     }

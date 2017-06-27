@@ -42,15 +42,15 @@ public class TestCase {
     @CreationTimestamp
     private Date createdTime;
 
-    @OneToMany(targetEntity = TestCaseMeta.class, cascade = CascadeType.ALL)
+    @OneToMany(targetEntity = TestCaseMeta.class, cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "test_case_uid")
     private List<TestCaseMeta> testCaseMetas;
 
-    @OneToMany(targetEntity = TestStep.class, cascade = CascadeType.ALL)
+    @OneToMany(targetEntity = TestStep.class, cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "test_case_uid")
     private List<TestStep> testSteps;
 
-    @OneToMany(targetEntity = TestData.class, cascade = CascadeType.ALL)
+    @OneToMany(targetEntity = TestData.class, cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "test_case_uid")
     private List<TestData> testDatas;
 

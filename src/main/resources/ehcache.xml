@@ -10,8 +10,8 @@
 
     <cache name="test_case_search"
            maxElementsInMemory="100"
-           timeToIdleSeconds="3"
-           timeToLiveSeconds="60"/>
+           timeToIdleSeconds="10000"
+           timeToLiveSeconds="60000"/>
 
     <cache name="execution_search"
            maxElementsInMemory="100"
