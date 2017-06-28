@@ -26,19 +26,19 @@ public class TestCaseServiceController {
     @Autowired
     TestCaseSearchService testCaseSearchService;
 
-    @ApiOperation(value="Save an test case", notes="Save an test case via a POST/PUT request")
+    @ApiOperation(value="Save a test case", notes="Save a test case via a POST/PUT request")
     @RequestMapping(value = {"", "/"}, method = {RequestMethod.PUT, RequestMethod.POST})
     public TestCase save(@RequestBody TestCase testCase){
         return testCaseService.save(testCase);
     }
 
-    @ApiOperation(value="Find an test case", notes="Find an test case via a GET request")
+    @ApiOperation(value="Find a test case", notes="Find a test case via a GET request")
     @RequestMapping(value = "/{uid}", method = RequestMethod.GET)
     public TestCase find(@PathVariable String uid){
         return testCaseSearchService.findOne(uid);
     }
 
-    @ApiOperation(value="Delete an test case", notes="Delete an test case via a GET request")
+    @ApiOperation(value="Delete a test case", notes="Delete a test case via a GET request")
     @RequestMapping(value = "/{uid}", method = RequestMethod.DELETE)
     public void delete(@PathVariable String uid){
         testCaseService.delete(uid);

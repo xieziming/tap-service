@@ -8,6 +8,7 @@ package com.xieziming.tap.model.testcase;
 
 import lombok.Data;
 import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 
@@ -23,6 +24,7 @@ public class TestCaseTag {
     private Integer id;
 
     @Column(length = 50, nullable = false)
+    @NotEmpty
     private String tag;
 
     @Override

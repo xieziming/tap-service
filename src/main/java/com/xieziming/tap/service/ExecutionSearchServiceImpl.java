@@ -50,7 +50,6 @@ public class ExecutionSearchServiceImpl implements ExecutionSearchService{
         executionFolder.setPath(path);
         List<Execution> executions = executionRepository.findByPath(path);
         for(Execution execution : executions){
-            execution.setExecutionContext(null);
             execution.setExecutionLogs(null);
             execution.setExecutionOutputTexts(null);
             execution.setExecutionOutputFiles(null);

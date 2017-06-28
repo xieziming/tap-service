@@ -9,6 +9,7 @@ package com.xieziming.tap.model.execution;
 import lombok.Data;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -28,6 +29,7 @@ public class ExecutionOutputText {
     private String path;
 
     @Column(length=50)
+    @NotEmpty
     private String field;
 
     @Column(columnDefinition="TEXT")

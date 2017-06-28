@@ -8,6 +8,7 @@ package com.xieziming.tap.model.execution;
 
 import lombok.Data;
 import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 
@@ -23,6 +24,7 @@ public class ExecutionOutputFile {
     private Integer id;
 
     @Column(length=100)
+    @NotEmpty
     private String path;
 
     @Column(length=100)

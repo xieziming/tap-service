@@ -9,6 +9,7 @@ package com.xieziming.tap.model.execution;
 import lombok.Data;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -21,14 +22,15 @@ import java.util.Date;
 @Table(name="execution_context")
 public class ExecutionContext {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
-
-    @Column(length=50)
+    @Column(length = 50)
+    @NotEmpty
     private String name;
 
-    @Column(length=1000)
-    private String content;
+    @Column(columnDefinition="TEXT")
+    private String context;
+
+    @Column(length=200)
+    private String remark;
 
     @Temporal(TemporalType.TIMESTAMP)
     @UpdateTimestamp
@@ -37,9 +39,9 @@ public class ExecutionContext {
     @Override
     public String toString() {
         return "ExecutionContext{" +
-                "id=" + id +
-                ", name=" + name +
-                ", content=" + content +
+                "name=" + name +
+                ", context=" + context +
+                ", remark=" + remark +
                 ", lastModified=" + lastModified +
                 '}';
     }
@@ -51,7 +53,8 @@ public class ExecutionContext {
             ExecutionContext executionContext = (ExecutionContext) o;
             equals = (new EqualsBuilder()
                     .append(name, executionContext.getName())
-                    .append(content, executionContext.getContent())
+                    .append(context, executionContext.getContext())
+                    .append(remark, executionContext.getRemark())
                     .append(lastModified, executionContext.getLastModified())
                     .isEquals());
         }

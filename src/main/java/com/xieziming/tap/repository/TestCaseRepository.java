@@ -12,11 +12,6 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 
 import java.util.List;
 
-/**
- * A repository to manage {@link TestCase} instances.
- *
- * @author Suny Xie
- */
 public interface TestCaseRepository extends PagingAndSortingRepository<TestCase, String>, CrudRepository<TestCase, String> {
     List<TestCase> findByName(String name);
     List<TestCase> findByPath(String path);

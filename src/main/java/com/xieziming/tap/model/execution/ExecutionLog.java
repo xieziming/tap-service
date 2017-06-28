@@ -39,7 +39,7 @@ public class ExecutionLog {
         return "ExecutionLog{" +
                 "id=" + id +
                 ", level=" + level +
-                ", content=" + content +
+                ", context=" + content +
                 ", time=" + time +
                 '}';
     }

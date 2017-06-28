@@ -6,7 +6,6 @@
 
 package com.xieziming.tap.repository;
 
-
 import com.xieziming.tap.model.execution.Execution;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;

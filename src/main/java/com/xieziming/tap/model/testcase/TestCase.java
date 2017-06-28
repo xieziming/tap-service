@@ -9,6 +9,7 @@ package com.xieziming.tap.model.testcase;
 import lombok.Data;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -23,12 +24,15 @@ import java.util.List;
 public class TestCase {
     @Id
     @Column(length = 50)
+    @NotEmpty
     private String uid;
 
     @Column(length=100, nullable = false)
-    private String path = "/unclassified";
+    @NotEmpty
+    private String path;
 
     @Column(length = 100)
+    @NotEmpty
     private String name;
 
     @Column(length=500)

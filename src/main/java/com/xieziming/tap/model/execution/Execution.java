@@ -8,6 +8,7 @@ package com.xieziming.tap.model.execution;
 
 import lombok.Data;
 import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -25,13 +26,12 @@ public class Execution {
     private Integer id;
 
     @Column(length=100, nullable = false)
-    private String path = "/unclassified";
+    @NotEmpty
+    private String path;
 
     @Column(length=100, nullable = false)
+    @NotEmpty
     private String testCase;
-
-    @ManyToOne(cascade = CascadeType.MERGE)
-    private ExecutionContext executionContext;
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date startTime;
@@ -66,7 +66,6 @@ public class Execution {
                 "id=" + id +
                 ", path=" + path +
                 ", testCase=" + testCase +
-                ", executionContext=" + executionContext +
                 ", startTime=" + startTime +
                 ", endTime=" + endTime +
                 ", status=" + status +
@@ -83,7 +82,6 @@ public class Execution {
             equals = (new EqualsBuilder()
                     .append(path, execution.getPath())
                     .append(testCase, execution.getTestCase())
-                    .append(executionContext, execution.getExecutionContext())
                     .append(startTime, execution.getStartTime())
                     .append(endTime, execution.getEndTime())
                     .append(status, execution.getStatus())
