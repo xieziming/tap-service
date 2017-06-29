@@ -42,6 +42,12 @@ public class Execution {
     @Column(length=50)
     private String status;
 
+    @Column(length=10)
+    private Integer sequence;
+
+    @Column(length=10)
+    private Integer priority;
+
     @Column(length=50)
     private String result;
 
