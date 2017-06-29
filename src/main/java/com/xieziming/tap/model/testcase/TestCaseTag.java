@@ -13,7 +13,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 import javax.persistence.*;
 
 /**
- * Created by Suny on 5/8/16.
+ * Created by Suny on 5/8/17.
  */
 @Data
 @Entity
